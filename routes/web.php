@@ -27,3 +27,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 if (app()->environment('production')) {
     URL::forceScheme('https');
   }
+
+// ようこそ
+Route::get('/hello','App\Http\Controllers\HelloController@index');
+
+// inputページ
+Route::get('/auth/top','App\Http\Controllers\InputController@top')->middleware('auth');
+Route::post('/auth/check','App\Http\Controllers\InputController@check')->middleware('auth');
+Route::post('/auth/submit','App\Http\Controllers\InputController@submit')->middleware('auth');
+
+// マイペーじ
+Route::get('/auth/profile/mypage','App\Http\Controllers\ProfileController@mypage')->middleware('auth');
+
