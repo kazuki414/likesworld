@@ -4,6 +4,8 @@
 <form method="POST" action="submit">
 @csrf
 <div class="container">
+@extends('auth.input.message.confirm')
+@extends('auth.input.message.choice')
 @empty($check)
 @if($type ===0)
 <p>あなたの好きな『{{ $category }}』は『{{ $word }}』で登録していいですか？</p>
@@ -21,6 +23,7 @@
     <a href="top">入力画面に戻る</a>
     <input type="hidden" name="word" value="{{ $word }}">
     <input type="hidden" name="category" value="{{ $category }}">
+    <input type="hidden" name="comment" value="{{ $comment }}">
 </div>
 </form>
 @endsection

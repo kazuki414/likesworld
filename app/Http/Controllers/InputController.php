@@ -22,11 +22,11 @@ class InputController extends Controller
     {
         $inputCategory = $request->input('category');
         $inputWord = $request->input('word');
-        $inputComment = $request->input('comment');
+        $comment = $request->input('comment');
         $data = [
             'category' => $inputCategory,
             'word' => $inputWord,
-            'comment' => $inputComment,
+            'comment' => $comment,
             'type' => 0          
         ];
         //  dd($data);
@@ -37,11 +37,15 @@ class InputController extends Controller
 
     public function submit(Request $request)
     {
+        // リクエストから値を取得
         $insertCategory = $request->input('category');
         $insertWord = $request->input('word');
         $checked = $request->input('checked');
         $type = $request->input('type');
+        $comment = $request->input('comment');
         
+
+
         // typeがセットされていない場合
         if(empty($type)) {
             $type = 0;
@@ -81,7 +85,8 @@ class InputController extends Controller
                 'check' => $check,
                 'oldWord' => $oldWord,
                 'word' => $insertWord,
-                'category' => $insertCategory
+                'category' => $insertCategory,
+                'comment' => $comment
             ];
         
             return view('auth.input.check',$data);
@@ -92,7 +97,8 @@ class InputController extends Controller
             DB::table('words')->insert([
                 'word' => $insertWord,
                 'category_id' => $category_id,
-                'user_id' => $user_id
+                'user_id' => $user_id,
+                'comment' => $comment
             ]);
 
             $data =[
