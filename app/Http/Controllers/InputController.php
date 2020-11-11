@@ -25,7 +25,6 @@ class InputController extends Controller
         $inputWord = $request->input('word');
         $comment = $request->input('comment');
         $type = $request->input('type');  
-        // いったんタイプは好きなもの（０）でデフォルト
         $data = [
             'category' => $inputCategory,
             'word' => $inputWord,

@@ -2,7 +2,12 @@
 @section('title','マイページ')
 @section('main')
 登録したもの
-@foreach($categories as $category)
-<p>{{ $category->name }}</p>
+@foreach($words as $value)
+<p>{{ $value->name }}</p>
+に
+<p> {{ $value->word }}</p>
+を
+<p>{{ $value->comment }}</p>
+で。
 @endforeach
 @endsection
