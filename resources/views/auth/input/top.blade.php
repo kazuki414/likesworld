@@ -1,7 +1,7 @@
 @extends('layouts.base')
 @section('title','入力画面')
 @section('main')
-<form method="POST" action="check">
+<form method="POST" action="{{ route('check') }}">
 @csrf
   <div class="form-group">
     <label for="exampleFormControlSelect1">カテゴリタイプ</label>
@@ -30,4 +30,5 @@
 </div>
 @endforeach
 </div>
+<a href="{{ route('mypage') }}">登録した単語一覧へ</a>
 @endsection

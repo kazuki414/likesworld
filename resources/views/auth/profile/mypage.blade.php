@@ -10,4 +10,6 @@
 <p>{{ $value->comment }}</p>
 で。
 @endforeach
+
+<a href="{{ route('top') }}">登録しにいく</a>
 @endsection

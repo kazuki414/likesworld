@@ -32,11 +32,11 @@ if (app()->environment('production')) {
 Route::get('/hello','App\Http\Controllers\HelloController@index');
 
 // inputページ
-Route::get('/auth/top','App\Http\Controllers\InputController@top')->middleware('auth');
-Route::post('/auth/check','App\Http\Controllers\InputController@check')->middleware('auth');
-Route::post('/auth/submit','App\Http\Controllers\InputController@submit')->middleware('auth');
-Route::post('/auth/update','App\Http\Controllers\InputController@update')->middleware('auth');
+Route::get('/auth/top','App\Http\Controllers\InputController@top')->middleware('auth')->name('top');
+Route::post('/auth/check','App\Http\Controllers\InputController@check')->middleware('auth')->name('check');
+Route::post('/auth/submit','App\Http\Controllers\InputController@submit')->middleware('auth')->name('submit');
+Route::post('/auth/update','App\Http\Controllers\InputController@update')->middleware('auth')->name('update');
 
 // マイペーじ
-Route::get('/auth/profile/mypage','App\Http\Controllers\ProfileController@mypage')->middleware('auth');
+Route::get('/auth/profile/mypage','App\Http\Controllers\ProfileController@mypage')->middleware('auth')->name('mypage');
 
