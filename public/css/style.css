@@ -1,3 +1,7 @@
+body{
+    background-color: #ddd;
+}
+
 h1{
     font-size:  5rem;
 }
@@ -91,3 +95,31 @@ h1{
     box-shadow: none;
 }
 
+nav{
+    background-color: #fac141;
+}
+
+.logoIcon{
+    height: 4rem;
+    width: 4rem;
+}
+
+
+
+footer{
+    background-color: white;
+}
+
+.bd-footer-links {
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.bd-footer-links li {
+    display: inline-block;
+}
+
+.contents-container{
+    border-radius: 2%;
+    box-shadow: 10px 10px 10px 0px #ccc;
+}
