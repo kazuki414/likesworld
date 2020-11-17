@@ -22,7 +22,7 @@
 
 <div class="container explan mx-auto my-4 col-md-8">
     <p class="text-center">あなたの好きなものを<br>あなた自身に知ってもらいましょう！</p>
-    <ul class="text-monospace">
+    <ul class="text-monospace text-center">
     <li>今日、日常の中にどれほど「好き」があるか気付けるかも？</li>
     <li>「自己紹介なんて言おうか・・・」そんなこと考えるエネルギーはもういらない！</li>
     <li>「なんでもいい。」大好きな人をそれで困らせちゃうのはもったいない！</li>

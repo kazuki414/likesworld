@@ -14,7 +14,7 @@
 <div class="header">
     <nav class="navbar flexed">
         <div class="flex-shrink-0 flex items-center">
-        <a class="navbar-bland" href="{{ route('top')}}">
+        <a class="navbar-bland" href="{{ route('hello')}}">
         <img src="{{ asset('img/logo.png')}}"  width="50" height="50" alt="LikesWorldのロゴ">
         <span class="navbar-brand mb-0 h1  text-dark">LikesWorld</span>
         </a>
@@ -22,7 +22,7 @@
 
     <!-- dropdownMenu -->
         <div class="flex items-center nav-item dropdown">
-            <button class="nav-link dropdown-toggle" id="DropdownMenu"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="nav-link dropdown-toggle btn btn-outline-success" id="DropdownMenu"role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ Auth::user()->name }}
             </button>
 

@@ -22,14 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-// 本番環境用
-// ProductionならHTTPSに変更
-if (app()->environment('production')) {
-    URL::forceScheme('https');
-  }
-
 // ようこそ
-Route::get('/hello','App\Http\Controllers\HelloController@index');
+Route::get('/hello','App\Http\Controllers\HelloController@index')->name('hello');
 
 // inputページ
 Route::get('/auth/top','App\Http\Controllers\InputController@top')->middleware('auth')->name('top');
