@@ -13,10 +13,12 @@
     <label for="FormControlSelect1">カテゴリタイプ</label>
     <select name="type" class="form-control" id="FormControlSelect1">
       <option value="0">好きな〇〇</option>
-      <option value="1">A派？B派？</option>
+      <option value="1">Aか？Bか？</option>
     </select>
   </div>
+
 <div class="container form-group">
+<section id="free">
 <p>あなたの好きな</p>
 <label class="text-muted" for="category">カテゴリ：</label>
 <input type="text" id="category" name="category" value="" placeholder="(例)食べ物" required>
@@ -24,6 +26,17 @@
 <label class="text-muted" for="word">登録単語：</label>
 <input type="text" id="word" name="word" value="" placeholder="(例)ハンバーグ" required>
 <p>です。</p>
+
+</section>
+<section id="orSelect" class="dis">
+<p>あなたは</p>
+<label class="text-muted" for="category">カテゴリ：</label>
+<input type="text" id="category" name="category" value="" placeholder="(例)犬派か猫派か" required>
+<p>は</p>
+<label class="text-muted" for="word">登録単語：</label>
+<input type="text" id="word" name="word" value="" placeholder="(例）猫派" required>
+<p>です。</p>
+</section>
 <label class="text-muted" for="comment">回答についてのひとこと:</label>
 <textarea type="text" id="comment" name="comment" rows="3"  value="" placeholder="(例)〇〇なくらい　〇〇なため　etc" ></textarea>
 </div>

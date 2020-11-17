@@ -123,3 +123,7 @@ footer{
     border-radius: 2%;
     box-shadow: 10px 10px 10px 0px #ccc;
 }
+
+.dis{
+    display: none;
+}
