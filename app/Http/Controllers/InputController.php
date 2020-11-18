@@ -11,7 +11,9 @@ class InputController extends Controller
     public function top()
     {
         // 全てのユーザが登録したカテゴリ
-        $categories = DB::table('categories')->get();
+        $categories = DB::table('categories')
+                            ->orderByRaw('updated_at DESC')
+                            ->get();
         $data = [
             'categories' => $categories
         ];
@@ -150,7 +152,10 @@ class InputController extends Controller
         //     $Word,
         //     $comment
         //     ]);
-        DB::table('words')->where('category_id',$category_id and'user_id',$user_id)
+        DB::table('words')->where([
+            ['category_id',$category_id],
+            ['user_id',$user_id],
+            ])
             ->update([
             'word' => $Word,
             'comment' => $comment,

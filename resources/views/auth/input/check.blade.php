@@ -13,6 +13,7 @@
 <p>(ひとことコメント)『{{ $comment }}』</p>
 @endif
     <a href="{{ route('top')}}">入力画面に戻る</a>
+    <a href="javascript:history.back()">[戻る]</a>
     <input class="btn-primary" type="submit" name="wordinsert" value="登録する">
     <input type="hidden" name="word" value="{{ $word }}">
     <input type="hidden" name="category" value="{{ $category }}">

@@ -12,8 +12,14 @@
         <h5 class="card-title">【{{ $value->word }}】</h5>
         <h6 class="card-subtitle mb-2 text-muted">{{ $value->name }}</h6>
         <p class="card-text">{{ $value->comment }}</p>
-        <a href="#" class="card-link">削除</a>
-        <a href="#" class="card-link">編集</a>
+        <form action="{{ route('delete', ['id' =>  $value->id ]) }}" method="post">
+        @csrf
+        <input type="submit" name="destroy" class="card-link" value="削除">
+        </form>
+        <form action="{{ route('edit', ['id' =>  $value->id ]) }}" method="post">
+        @csrf
+        <input type="submit" name="destroy" class="card-link" value="編集">
+        </form>
     </div>
     </div>
     @endforeach

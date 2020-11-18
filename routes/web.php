@@ -34,3 +34,7 @@ Route::post('/auth/update','App\Http\Controllers\InputController@update')->middl
 // マイペーじ
 Route::get('/auth/profile/mypage','App\Http\Controllers\ProfileController@mypage')->middleware('auth')->name('mypage');
 
+Route::post('/auth/profile/edit/{id}','App\Http\Controllers\ProfileController@edit')->middleware('auth')->name('edit');
+Route::post('/auth/profile/delete/{id}','App\Http\Controllers\ProfileController@delete')->middleware('auth')->name('delete');
+
+
