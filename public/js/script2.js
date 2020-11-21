@@ -1,7 +1,7 @@
 $(function(){
 
     // topページのセレクト処理
-    $('select').change(function () {
+    $('#FormControlSelect1').change(function () {
         var val = $('option:selected').val();
         if(val == 1){
             $('#orSelect').removeClass('dis');
@@ -19,10 +19,22 @@ $(function(){
 
     $('.catebtn').click(function(){
         var cateval = $(this).val();
-        // var catetype = $(this).
         $('#category').val(cateval);
-        
+
+        var num =$('.cateSele:selected').val();
+        $('#FormControlSelect1').val(num);
     });
 
+    $('#excategory').change(function(){
+        var type = $('.cateSele:selected').val();
+        if(type == 0){
+            $('#type0').removeClass('dis');
+            $('#type1').addClass('dis');
+        }
+        if(type == 1){
+            $('#type1').removeClass('dis');
+            $('#type0').addClass('dis');
+        }
+    })
 
 });

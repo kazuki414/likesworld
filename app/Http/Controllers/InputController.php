@@ -12,11 +12,19 @@ class InputController extends Controller
     {
         // 全てのユーザが登録したカテゴリ
         $categories = DB::table('categories')
+                            ->where('type',0)
+                            ->orderByRaw('updated_at DESC')
+                            ->get();
+
+        $selectCategories = DB::table('categories')
+                            ->where('type',1)
                             ->orderByRaw('updated_at DESC')
                             ->get();
         $data = [
-            'categories' => $categories
+            'categories' => $categories,
+            'selectCate' => $selectCategories
         ];
+        // dd($data);
         return view('auth.input.top',$data);
     }
 

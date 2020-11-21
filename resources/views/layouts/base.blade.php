@@ -60,12 +60,89 @@
 
 <footer class="bd-footer text-muted">
 <div class="container-fluid p-3 p-md-5">
-    <ul class="bd-footer-links">
-        <li class="col-md-3"><a href="{{ route('top') }}">TOPへ</a></li>
-        <li class="col-md-3"><a href="#">使い方</a></li>
-        <li class="col-md-3"><a href="#">作った人について</a></li>
+    <p class="text-right version">ver.1.0</p>
+    <ul class="bd-footer-links d-flex justify-content-around">
+        <li class="col-md-3 text-center"><a href="{{ route('top') }}">TOPへ</a></li>
+        <li class="col-md-3 text-center"><a href="#" data-toggle="modal" data-target="#howToUseModal">使い方</a></li>
+        <li class="col-md-3 text-center"><a href="#" data-toggle="modal" data-target="#aboutProducerModal">作った人について</a></li>
     </ul>
-    <p class="text-center">Copyright(c) Kazuk.I. All Right Reserved.</p>
+    <!-- モーダル -->
+    <!-- 使い方 -->
+    <div class="modal fade" id="howToUseModal" tabindex="-1" role="dialog" aria-labelledby="howToUseModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered col-md-8" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="howToUseModalTitle">使い方</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            <p>
+                あなたの好きなものを登録することで<br>
+                「あなたがこんなにもたくさんの好きなものを持っていること」を、知ってみましょう。<br>
+                好きなものを、勇気を出して好きと周りに伝えることで<br>
+                きっと好きなもので生活があふれていきます。
+            </p>
+            <p class="mx-auto col-md-7">
+                <br>
+                必要なことは<br>
+                ①登録したいカテゴリを選んで<br>
+                ②好きなものを入力して<br>
+                ③登録する<br>
+                <br>
+            </p>
+            <p>
+                そして、あなたが好きなものを忘れてしまったときや選択に迷ってしまったとき、<br>
+            </p>
+            <p class="text-center">マイページを見るだけ！！</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- 作った人 -->
+    <div class="modal fade" id="aboutProducerModal" tabindex="-1" role="dialog" aria-labelledby="aboutProducerModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="aboutProducerModalTitle">作った人について</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>プロフィール</p>
+                    <p>
+                    Name： Kazuki Iida <br>
+                    Age： 26 <br>
+                    </p>
+                    <p>メッセージ</p>
+                    <p>
+                    ここまでご覧いただきありがとうございます。<br>
+                    私がこれを作った背景としては、私自身自己紹介というものや、
+                    好きなものについて語ることが苦手だったという過去があったことにあります。<br>
+                    そこで、好きなものたちを形にしてまとめておいたら<br>
+                    何かの選択の際、その選択におけるエネルギー消費が少なくでき、またエネルギーを他の使いたいことに使える。
+                    もしくはその分、余裕のある充実した生活にできるのではないかと。<br>
+                    ......少なくとも自己紹介で困らなくはなるはず笑<br>
+                    そんな思いで仕上がりました。<br>
+                    <br>
+                    さらに、周囲の人に好きなものを簡単に知ってもらうことができれば、自分の好きなものが周りから近づいてくるのでは無いだろうかと思っています。<br>
+                    そのため、近々アップデートして登録したものを他の人に見てもらいやすくする機能をつけようかと考えておりますので、その時にまた見ていただけたら幸いです。<br>
+                    それでは。
+                    </p> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-center mt-5">Copyright(c) Kazuk.I. All Right Reserved.</p>
 </div>
 </footer>
     

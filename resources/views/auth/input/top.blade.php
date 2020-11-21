@@ -35,12 +35,19 @@
 <label class="text-muted" for="comment">回答についてのひとこと:</label>
 <textarea type="text" id="comment" name="comment" rows="3"  value="" placeholder="(例)〇〇なくらい　〇〇なため　etc" ></textarea>
 </div>
-<input class="btn-primary" type="submit" name="submit" value="登録する">
+<input class="btn-primary col-md-8 py-2" type="submit" name="submit" value="登録する">
 </form>
 </div>
 
-<div class="mt-5 container col-md-10 mx-auto">
-<p>例えば、こんなカテゴリも登録している方がいるようです</p>
+<div class="mt-5 p-3 container col-md-10 mx-auto bg-exam rounded-lg">
+<p class="h5">例えば、こんなカテゴリも登録している方がいるようです</p>
+<div class="form-group m-3 d-flex">
+  <select class="p-1" name="excategory" id="excategory">
+    <option class="cateSele" value="0">好きな〇〇</option>
+    <option class="cateSele" value="1">Aか？Bか？</option>
+  </select>に関して
+</div>
+<section id="type0">
 @foreach($categories as $category)
 <div class="btn">
 <button class="catebtn btn-primary text-center px-2 py-1" value="{{ $category->name }}">
@@ -48,8 +55,19 @@
 </button>
 </div>
 @endforeach
+</section>
+<section id="type1" class="dis">
+@foreach($selectCate as $category)
+<div class="btn">
+<button class="catebtn btn-primary text-center px-2 py-1" value="{{ $category->name }}">
+<label class="m-1" for ="word">{{ $category->name }}</label>
+</button>
+</div>
+@endforeach
+</section>
+
 </div>
 <div class="text-right mt-2">
-<a href="{{ route('mypage') }}">登録した単語一覧へ</a>
+<a href="{{ route('mypage') }}">マイページへ行く</a>
 </div>
 @endsection
