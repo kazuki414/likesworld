@@ -124,6 +124,10 @@ footer{
     box-shadow: 10px 10px 10px 0px #ccc;
 }
 
+.version{
+    font-size: 6px;
+}
+
 .dis{
     display: none;
 }
@@ -135,4 +139,12 @@ footer{
 
 textarea{
     vertical-align:top;
+}
+
+.bg-exam{
+    background-color: #CBFFD3;
+}
+
+li{
+    list-style: none;
 }
