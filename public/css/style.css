@@ -144,3 +144,7 @@ textarea{
 .bg-exam{
     background-color: #CBFFD3;
 }
+
+li{
+    list-style: none;
+}
