@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -23,7 +23,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 // ようこそ
-Route::get('/hello','App\Http\Controllers\HelloController@index')->name('hello');
+Route::get('/','App\Http\Controllers\HelloController@index')->name('hello');
 
 // inputページ
 Route::get('/auth/top','App\Http\Controllers\InputController@top')->middleware('auth')->name('top');
