@@ -6,41 +6,51 @@
 <p>あなたの「好き」を登録して、世界を広げよう！</p>
 </div>
 
-<div class="container text-center mx-auto col-md-10">
 <form method="POST" action="{{ route('check') }}">
-@csrf
-  <div class="form-group col-md-8 mx-auto">
-    <label for="FormControlSelect1">カテゴリタイプ</label>
-    <select name="type" class="form-control" id="FormControlSelect1">
-      <option value="0">好きな〇〇</option>
-      <option value="1">Aか？Bか？</option>
-    </select>
+  @csrf
+  <div class="form-group">
+    <div class="col-md-8 mx-auto">
+      <label for="FormControlSelect1">カテゴリタイプ</label>
+      <select name="type" class="form-control" id="FormControlSelect1">
+        <option value="0">好きな〇〇</option>
+        <option value="1">Aか？Bか？</option>
+      </select>
+    </div>
+    <div class="container text-center mx-auto my-5 p-3 col-md-10 inputField">
+
+      <div class="container form-group col-md-10">
+        <section id="free">
+          <p>あなたの好きな</p>
+        </section>
+        <section id="orSelect" class="dis">
+          <p>あなたは</p>
+        </section>
+        <div class="inputTextContainer my-3 mx-auto">
+          <input class="inputText text-white" type="text" id="category" name="category" value="" placeholder="(例)食べ物" required>
+          <label for="category">カテゴリ：</label>
+          <span class="focus_line"></span>
+        </div>
+        <div class="inputTextContainer my-3 mx-auto">
+          <input class="inputText text-white" type="text" id="word" name="word" value="" placeholder="(例)ハンバーグ" required>
+          <label for="word">登録単語：</label>
+          <span class="focus_line"></span>
+        </div>
+        <div class="inputTextContainer my-3 mx-auto">
+          <textarea class="inputText text-white" type="text" id="comment" name="comment" placeholder="(例)〇〇なくらい　〇〇なため　etc"></textarea>
+          <label for="comment">ひとこと：</label>
+          <span class="focus_line"></span>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-8 col-md-6 mx-auto text-center">
+    <input class="btn-primary py-2 submit-btn col-md-6" type="submit" name="submit" value="登録する">
+    </div>
   </div>
-
-<div class="container form-group">
-<section id="free">
-<p>あなたの好きな</p>
-</section>
-<section id="orSelect" class="dis">
-<p>あなたは</p>
-</section>
-<label class="text-muted" for="category">カテゴリ：</label>
-<input type="text" id="category" name="category" value="" placeholder="(例)食べ物" required>
-<p>は</p>
-<label class="text-muted" for="word">登録単語：</label>
-<input type="text" id="word" name="word" value="" placeholder="(例)ハンバーグ" required>
-<p>です。</p>
-
-
-<label class="text-muted" for="comment">回答についてのひとこと:</label>
-<textarea type="text" id="comment" name="comment" rows="3"  value="" placeholder="(例)〇〇なくらい　〇〇なため　etc" ></textarea>
-</div>
-<input class="btn-primary col-md-8 py-2" type="submit" name="submit" value="登録する">
 </form>
-</div>
 
 <div class="mt-5 p-3 container col-md-10 mx-auto bg-exam rounded-lg">
-<p class="h5">例えば、こんなカテゴリも登録している方がいるようです</p>
+<p class="exampleTitle">例えば、こんなカテゴリも登録している方がいるようです</p>
 <div class="form-group m-3 d-flex">
   <select class="p-1" name="excategory" id="excategory">
     <option class="cateSele" value="0">好きな〇〇</option>
@@ -67,7 +77,7 @@
 </section>
 
 </div>
-<div class="text-right mt-2">
+<div class="container mt-4 mx-auto text-center">
 <a href="{{ route('mypage') }}">マイページへ行く</a>
 </div>
 @endsection
