@@ -90,6 +90,10 @@ h1{
     opacity: 0;
 }
 
+.btn{
+    -webkit-appearance: none;
+}
+
 .btn:focus {
     outline:0;
     box-shadow: none;
@@ -137,9 +141,6 @@ footer{
 }
 
 
-textarea{
-    vertical-align:top;
-}
 
 .bg-exam{
     background-color: #CBFFD3;
@@ -147,4 +148,115 @@ textarea{
 
 li{
     list-style: none;
+}
+
+/* .submit-btn{ 
+    color: #fff;
+    background-color: darkorange;
+    border-color: darkorange;
+} */
+
+.inputField{    
+        box-sizing    : border-box;           /* 罫線も含む長さ       */
+        width         : 100%;                 /* BOXの幅              */
+        text-align    : center;               /* 文字位置             */
+        color         :white;              /* 文字色               */
+      
+        background    : #990000;              /* BOXの背景色          */
+        border        : 5px groove #ffff1a;   /* 枠線の指定           */
+        box-shadow    : 0 0 0 9px #990000;   /* 影を利用した外余白   */
+}
+
+.entryField{    
+        box-sizing    : border-box;           /* 罫線も含む長さ       */
+        width         : 100%;                 /* BOXの幅              */
+        color         :white;              /* 文字色               */
+        /* font-family: ; */
+        background    : #990000;              /* BOXの背景色          */
+        border        : 5px groove #ffff1a;   /* 枠線の指定           */
+        box-shadow    : 0 0 0 9px #990000;   /* 影を利用した外余白   */
+}
+.text-label{
+    opacity: .8;
+}
+
+.exampleTitle{
+    font-size: 1.1rem;
+}
+
+.textWrap{
+    word-wrap:break-word;
+}
+
+
+
+/* test */
+
+.inputTextContainer {
+	position: relative;
+	width: 80%;
+	/* margin: 40px 3%; */
+}
+.inputTextContainer input[type='text'] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	letter-spacing: 1px;
+	padding-left: 6em;
+}
+
+.inputTextContainer textarea {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	letter-spacing: 1px;
+    padding-left: 6em;
+    vertical-align:top;
+}
+.inputTextContainer input[type='text']:focus {
+	outline: none;
+}
+.inputTextContainer textarea:focus {
+	outline: none;
+}
+.inputText {
+	padding: 4px 0;
+	border: 0;
+	border-bottom: 1px solid #1b2538;
+	background-color: transparent;
+}
+.inputText ~ .focus_line {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	transition: 0.4s;
+	background-color: #fac141;
+}
+.inputText:focus ~ .focus_line,
+.inputTextContainer.inputText ~ .focus_line {
+	width: 100%;
+	transition: 0.4s;
+}
+.inputText ~ label {
+	position: absolute;
+	/* z-index: -1; */
+	top: 4px;
+	left: 0;
+	/* width: 100%; */
+	transition: 0.3s;
+	letter-spacing: 0.5px;
+	color: #aaaaaa;
+}
+.inputText:focus ~ label, .inputTextContainer.inputText ~ label {
+	font-size: 12px;
+	top: -16px;
+	transition: 0.3s;
+	color: #fac141;
+}
+
+input::placeholder {
+    color:white;
+    opacity: .6;
 }

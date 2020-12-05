@@ -4,17 +4,47 @@
 <form method="POST" action="{{ route('submit')}}">
 @csrf
 <div class="container">
+<p class="text-center">以下の内容で登録しますか？</p>
 @if($type == 0)
-<p>あなたの好きな『{{ $category }}』は『{{ $word }}』で登録していいですか？</p>
-<p>(ひとことコメント)『{{ $comment }}』</p>
+<div class="container entryField my-5">
+    <div class="col-md-6 mx-auto my-1 mt-3">
+        <div class="d-flex">
+            <p>カテゴリ：</p>
+            <p class="pl-3">好きな{{$category}}</p>
+        </div>
+        <div class="d-flex my-1">
+            <p>登録内容：</p>
+            <p class="pl-3">{{$word}}</p>
+        </div>
+        <div class="d-flex textWrap">
+            <p>ひとこと：</p>
+            <p class="col-7 col-lg-9">{{$comment}}</p>
+        </div>
+    </div>
+</div>
 @endif
 @if($type == 1)
-<p>あなたは『{{ $category }}』に関して、『{{ $word }}』派でいいですか？</p>
-<p>(ひとことコメント)『{{ $comment }}』</p>
+<div class="container entryField my-5">
+    <div class="col-md-6 mx-auto my-1 mt-3">
+        <div class="d-flex">
+            <p>カテゴリ：</p>
+            <p class="pl-3">{{$category}}</p>
+        </div>
+        <div class="d-flex my-1">
+            <p>登録内容：</p>
+            <p class="pl-3">{{$word}}</p>
+        </div>
+        <div class="d-flex textWrap">
+            <p>ひとこと：</p>
+            <p class="col-7 col-lg-9">{{$comment}}</p>
+        </div>
+    </div>
+</div>
 @endif
-
-    <a class="btn btn-secondary" href="javascript:history.back()">戻る</a>
-    <input class="btn btn-primary" type="submit" name="wordinsert" value="登録する">
+<div class="text-center">
+    <a class="btn btn-secondary m-1" href="javascript:history.back()">戻る</a>
+    <input class="btn btn-primary m-1" type="submit" name="wordinsert" value="登録する">
+</div>
     <input type="hidden" name="word" value="{{ $word }}">
     <input type="hidden" name="category" value="{{ $category }}">
     <input type="hidden" name="comment" value="{{ $comment }}">

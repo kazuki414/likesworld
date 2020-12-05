@@ -60,7 +60,7 @@
 
 <footer class="bd-footer text-muted">
 <div class="container-fluid p-3 p-md-5">
-    <p class="text-right version">ver.1.0</p>
+    <p class="text-right version">ver.1.1</p>
     <ul class="bd-footer-links d-flex justify-content-around">
         <li class="col-md-3 text-center"><a href="{{ route('top') }}">TOPへ</a></li>
         <li class="col-md-3 text-center"><a href="#" data-toggle="modal" data-target="#howToUseModal">使い方</a></li>
@@ -122,7 +122,7 @@
                     <p>メッセージ</p>
                     <p>
                     ここまでご覧いただきありがとうございます。<br>
-                    私がこれを作った背景としては、私自身自己紹介というものや、
+                    私がこれを作った背景としては、私自身、自己紹介というものや、
                     好きなものについて語ることが苦手だったという過去があったことにあります。<br>
                     そこで、好きなものたちを形にしてまとめておいたら<br>
                     何かの選択の際、その選択におけるエネルギー消費が少なくでき、またエネルギーを他の使いたいことに使える。
@@ -130,7 +130,7 @@
                     ......少なくとも自己紹介で困らなくはなるはず笑<br>
                     そんな思いで仕上がりました。<br>
                     <br>
-                    さらに、周囲の人に好きなものを簡単に知ってもらうことができれば、自分の好きなものが周りから近づいてくるのでは無いだろうかと思っています。<br>
+                    さらに、周囲の人に好きなものを簡単に知ってもらうことができれば、自分の好きなものが周りから近づいてくるのではないだろうかと思っています。<br>
                     そのため、近々アップデートして登録したものを他の人に見てもらいやすくする機能をつけようかと考えておりますので、その時にまた見ていただけたら幸いです。<br>
                     それでは。
                     </p> 
