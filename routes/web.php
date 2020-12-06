@@ -24,6 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // ようこそ
 Route::get('/','App\Http\Controllers\HelloController@index')->name('hello');
+Route::get('/hello','App\Http\Controllers\HelloController@index');
 
 // inputページ
 Route::get('/auth/top','App\Http\Controllers\InputController@top')->middleware('auth')->name('top');
