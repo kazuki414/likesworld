@@ -9,14 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class ProfileController extends Controller
 {
     //
-    public function mypage()
+    public function mypage(Request $request)
     {
-        // $categories = DB::table('categories')->get();
-        // $words = DB::table('words')->get();
-        // $data =[
-        //     'categories' => $categories,
-        //     'words' => $words
-        // ];
+        $request->session()->forget(['category', 'word','comment','type','category.id']);
+
         $authUser = Auth::user();
         $auth =[
             'id' => $authUser['id'],
@@ -28,7 +24,7 @@ class ProfileController extends Controller
         $table = DB::table('words')
                     ->join('categories','words.category_id','=','categories.id')
                     ->where('words.user_id',$user_id)
-                    ->select('categories.name','words.word','words.comment','words.id')
+                    ->select('categories.name','words.word','words.comment','words.id','categories.type')
                     ->orderByRaw('words.updated_at DESC')
                     ->get();
         $data =[

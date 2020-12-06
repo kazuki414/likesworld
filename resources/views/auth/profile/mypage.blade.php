@@ -11,7 +11,11 @@
     <div class="col-md-10 mx-auto my-1 mt-3">
         <div class="d-flex">
             <p>カテゴリ：</p>
-            <p class="pl-3">好きな{{$value->name}}</p>
+            <p class="pl-3">
+            @if($value->type ==0)
+            好きな
+            @endif
+            {{$value->name}}</p>
         </div>
         <div class="d-flex my-1">
             <p>登録内容：</p>

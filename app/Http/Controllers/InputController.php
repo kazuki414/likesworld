@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class InputController extends Controller
 {
-    public function top()
+    public function top(Request $request)
     {
+        // セッションリセット
+        $request->session()->forget(['category', 'word','comment','type','category.id']);
+
         // 全てのユーザが登録したカテゴリ
         $categories = DB::table('categories')
                             ->where('type',0)
@@ -24,7 +27,6 @@ class InputController extends Controller
             'categories' => $categories,
             'selectCate' => $selectCategories
         ];
-        // dd($data);
         return view('auth.input.top',$data);
     }
 
@@ -42,6 +44,14 @@ class InputController extends Controller
             'type' => $type        
         ];
         // ---------------ここまで(処理に必要な値の定義)-----------------------』
+        
+        // ---------------セッションの設定----------------------------------
+        session(['category' => $inputCategory]);
+        session(['word' => $inputWord]);
+        session(['comment' => $comment]);
+        session(['type' => $type]);
+        // ---------------ここまで(セッションの設定)-----------------------』
+
         return view('auth.input.check',$data);
     }
     
@@ -50,11 +60,15 @@ class InputController extends Controller
     public function submit(Request $request)
     {
         // -------------------処理に必要な値の定義----------------------------
-        // リクエストから値を取得
-        $insertCategory = $request->input('category'); #カテゴリ名
-        $insertWord = $request->input('word'); #登録単語
-        $type = $request->input('type'); #登録カテゴリのタイプ
-        $comment = $request->input('comment'); #登録コメント
+        // セッションから値を取得
+        $insertCategory = $request->session()->get('category');
+        $insertWord = $request->session()->get('word');
+        $comment = $request->session()->get('comment', 'ひとこと登録：なし');
+        $type = $request->session()->get('type');
+
+        // セッション確認コード０００００００００００００００００００００００００
+        // $testdata = $request->session()->all();
+        // dd($testdata);
         $authUser = Auth::user();
         $auth =[
             'id' => $authUser['id'],
@@ -81,6 +95,8 @@ class InputController extends Controller
             ->value('id');
         }
             
+        // セッションにカテゴリID追加
+        session(['category.id' => $category_id]);
         // -----------------ここまで(処理に必要な値の定義)----------------』
         
         
@@ -137,10 +153,10 @@ class InputController extends Controller
     public function update(Request $request)
     {
         // -------------------必要な値の定義-------------------------------
-        // $insertCategory = $request->input('category');
+        // セッションから値を取得
+        $category_id = $request->session()->get('category.id');
         $Word = $request->input('word'); #更新する単語
         $comment = $request->input('comment'); #更新するコメント
-        $category_id = $request->input('category_id'); #操作するカテゴリのid
         $authUser = Auth::user();
         $auth =[
             'id' => $authUser['id'],
