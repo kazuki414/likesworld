@@ -23,7 +23,7 @@
     </div>
     <div class="d-flex justify-content-around">
     <a class="btn" href="{{ route('top') }}">入力画面に戻る</a>
-    <input class="btn" type="submit" name="update" value="更新する">
+    <input class="btn" type="submit" name="submit" value="更新する">
     </div>
 </div>
 </form>

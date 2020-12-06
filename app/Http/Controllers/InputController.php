@@ -155,8 +155,17 @@ class InputController extends Controller
         // -------------------必要な値の定義-------------------------------
         // セッションから値を取得
         $category_id = $request->session()->get('category.id');
-        $Word = $request->input('word'); #更新する単語
-        $comment = $request->input('comment'); #更新するコメント
+        $Word = $request->session()->get('word');
+        $comment = $request->session()->get('comment');
+        // editページから来た場合のみ処理
+        $editOn = $request->input('update'); #更新する単語
+        if(isset($editOn)){
+            $Word = $request->input('word'); #更新する単語
+            $comment = $request->input('comment'); #更新するコメント
+        }
+        // $testdata = $request->session()->all();
+        // dd($editOn,$testdata);
+        // dd($Word);
         $authUser = Auth::user();
         $auth =[
             'id' => $authUser['id'],

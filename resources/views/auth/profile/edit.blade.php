@@ -29,7 +29,7 @@
     </div>
 </div>
 @endforeach
-<input class="btn-primary" type="submit" name="submit" value="更新する">
+<input class="btn-primary" type="submit" name="update" value="更新する">
 </form>
 </div>
 
