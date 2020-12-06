@@ -43,13 +43,11 @@ class ProfileController extends Controller
                     ->join('categories','words.category_id','=','categories.id')
                     ->where('words.id',$id)
                     ->get();
-        
-        // if($table[0]['type'] == 0){
-        //     $type ="あなたの好きな";
-        // }
-        // if($table[0]['type'] == 1){
-        //     $type ="あなたは";
-        // }
+        $categoryId = DB::table('words')
+                    ->where('words.id',$id)
+                    ->value('category_id');
+        session(['category.id' => $categoryId]);
+
         $data = [
             'colums' => $table
         ];
