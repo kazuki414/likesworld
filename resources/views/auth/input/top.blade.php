@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="col-8 col-md-6 mx-auto text-center">
-    <input class="btn-primary py-2 submit-btn col-md-6" type="submit" name="submit" value="登録する">
+    <input class="py-2 btn btn-primary submitbtn col-md-6" type="submit" name="submit" value="登録する">
     </div>
   </div>
 </form>
@@ -60,7 +60,7 @@
 <section id="type0">
 @foreach($categories as $category)
 <div class="btn">
-<button class="catebtn btn-primary text-center px-2 py-1" value="{{ $category->name }}">
+<button class="catebtn btn-success text-center px-2 py-1" value="{{ $category->name }}">
 <label class="m-1" for ="word">好きな{{ $category->name }}</label>
 </button>
 </div>
@@ -69,7 +69,7 @@
 <section id="type1" class="dis">
 @foreach($selectCate as $category)
 <div class="btn">
-<button class="catebtn btn-primary text-center px-2 py-1" value="{{ $category->name }}">
+<button class="catebtn btn-success text-center px-2 py-1" value="{{ $category->name }}">
 <label class="m-1" for ="word">{{ $category->name }}</label>
 </button>
 </div>

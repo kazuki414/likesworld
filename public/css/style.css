@@ -1,5 +1,14 @@
 body{
     background-color: #ddd;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.letter_font{
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.entry_font{
+    font-family: 'Noto Serif JP', serif;
 }
 
 h1{
@@ -88,11 +97,18 @@ h1{
     z-index: -10;
     transition: all 4s;
     opacity: 0;
-    box-shadow: 0 0 8px rgba(226, 219, 179, 0.9) ;
+    box-shadow: 0 3px 8px rgba(80, 80, 80, 0.4) ;
 }
+
+.cercle:hover{
+    background-color: #f7f1e2;
+}
+
+
 
 .btn{
     -webkit-appearance: none;
+
 }
 
 .btn:focus {
@@ -125,7 +141,7 @@ footer{
 }
 
 .contents-container{
-    border-radius: 2%;
+    border-radius: 2vh;
     box-shadow: 10px 10px 10px 0px #ccc;
 }
 
@@ -137,11 +153,46 @@ footer{
     display: none;
 }
 
-.btn-primary{
-    border-radius: 10px;
+
+.submitbtn{
+    border-radius: 100vh;
+}
+.submitbtn:focus {
+    outline:0;
+    box-shadow: none;
 }
 
+.catebtn{
+    border-radius: 100vh;
+}
+.catebtn:focus {
+    outline:0;
+    box-shadow: none;
+}
 
+.edtbtn{
+    border-radius: 100vh;
+}
+.edtbtn:focus {
+    outline:0;
+    box-shadow: none;
+}
+
+.dltbtn{
+    border-radius: 100vh;
+}
+.dltbtn:focus {
+    outline:0;
+    box-shadow: none;
+}
+
+.backbtn{
+    border-radius: 100vh;
+}
+.backbtn:focus {
+    outline:0;
+    box-shadow: none;
+}
 
 .bg-exam{
     background-color: #CBFFD3;
@@ -260,4 +311,8 @@ li{
 input::placeholder {
     color:white;
     opacity: .6;
+}
+
+.cateSize{
+    min-width: 80px;
 }
