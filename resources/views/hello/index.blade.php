@@ -32,6 +32,7 @@
     <p class="my-3 text-center">さぁ、はじめてみよう！！</p>
 </div>
 
+<!-- 背景デザインの黄色い円 -->
 <div class="container space col-md-12 my-5"></div>
 <div class="cercle1"></div>
 <div class="cercle2"></div>

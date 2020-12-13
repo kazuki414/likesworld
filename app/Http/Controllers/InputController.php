@@ -13,12 +13,13 @@ class InputController extends Controller
         // セッションリセット
         $request->session()->forget(['category', 'word','comment','type','category.id']);
 
-        // 全てのユーザが登録したカテゴリ
+        // 全てのユーザが登録したカテゴリ(好きなもの)
         $categories = DB::table('categories')
                             ->where('type',0)
                             ->orderByRaw('updated_at DESC')
                             ->get();
 
+        // 全てのユーザが登録したカテゴリ（AかBか）
         $selectCategories = DB::table('categories')
                             ->where('type',1)
                             ->orderByRaw('updated_at DESC')
@@ -33,21 +34,21 @@ class InputController extends Controller
     public function check(Request $request)
     {
         // -------------------処理に必要な値の定義-----------------------
-        $inputCategory = $request->input('category');
-        $inputWord = $request->input('word');
-        $comment = $request->input('comment');
-        $type = $request->input('type');  
+        $category = $request->input('category');      #カテゴリ名
+        $word = $request->input('word');              #登録単語
+        $comment = $request->input('comment');        #ひとこと内容
+        $type = $request->input('type');              #カテゴリタイプ
         $data = [
-            'category' => $inputCategory,
-            'word' => $inputWord,
+            'category' => $category,
+            'word' => $word,
             'comment' => $comment,
             'type' => $type        
         ];
         // ---------------ここまで(処理に必要な値の定義)-----------------------』
         
         // ---------------セッションの設定----------------------------------
-        session(['category' => $inputCategory]);
-        session(['word' => $inputWord]);
+        session(['category' => $category]);
+        session(['word' => $word]);
         session(['comment' => $comment]);
         session(['type' => $type]);
         // ---------------ここまで(セッションの設定)-----------------------』
@@ -61,14 +62,11 @@ class InputController extends Controller
     {
         // -------------------処理に必要な値の定義----------------------------
         // セッションから値を取得
-        $insertCategory = $request->session()->get('category');
-        $insertWord = $request->session()->get('word');
+        $category = $request->session()->get('category'); 
+        $word = $request->session()->get('word');
         $comment = $request->session()->get('comment', 'ひとこと登録：なし');
         $type = $request->session()->get('type');
 
-        // セッション確認コード０００００００００００００００００００００００００
-        // $testdata = $request->session()->all();
-        // dd($testdata);
         $authUser = Auth::user();
         $auth =[
             'id' => $authUser['id'],
@@ -79,19 +77,19 @@ class InputController extends Controller
         
         // カテゴリIDの取得（未登録ならnull）
         $category_id = DB::table('categories')
-        ->where('name', $insertCategory)
+        ->where('name', $category)
         ->value('id');
         
         // 選択カテゴリが新規の場合(db追加＋id取得)
         if (empty($category_id)) {
             DB::table('categories')->insert([
-                'name' => $insertCategory,
+                'name' => $category,
                 'type' => $type,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
             $category_id = DB::table('categories')
-            ->where('name', $insertCategory)
+            ->where('name', $category)
             ->value('id');
         }
             
@@ -113,9 +111,9 @@ class InputController extends Controller
             // -------同カテゴリに登録がある場合
             $data = [
                 'oldWord' => $oldWord, 
-                'word' => $insertWord, 
+                'word' => $word, 
                 'comment' => $comment,
-                'category' => $insertCategory,
+                'category' => $category,
                 'category_id' => $category_id
             ];
             
@@ -125,7 +123,7 @@ class InputController extends Controller
             // -------同カテゴリに登録がない場合
             // ワードの登録
             DB::table('words')->insert([
-                'word' => $insertWord,
+                'word' => $word,
                 'comment' => $comment,
                 'user_id' => $user_id,
                 'category_id' => $category_id,
@@ -137,9 +135,9 @@ class InputController extends Controller
                 'updated_at' => now()
             ]);
             $data =[
-                    'word' => $insertWord,
+                    'word' => $word,
                     'comment' => $comment,
-                    'category' => $insertCategory
+                    'category' => $category
                 ];
                 
             return view('auth.input.submit',$data);
@@ -155,17 +153,15 @@ class InputController extends Controller
         // -------------------必要な値の定義-------------------------------
         // セッションから値を取得
         $category_id = $request->session()->get('category.id');
-        $Word = $request->session()->get('word');
+        $word = $request->session()->get('word');
         $comment = $request->session()->get('comment');
+        
         // editページから来た場合のみ処理
-        $editOn = $request->input('update'); #更新する単語
+        $editOn = $request->input('update'); #editページのsubmitボタンvalue
         if(isset($editOn)){
-            $Word = $request->input('word'); #更新する単語
+            $word = $request->input('word'); #更新する単語
             $comment = $request->input('comment'); #更新するコメント
         }
-        // $testdata = $request->session()->all();
-        // dd($editOn,$testdata);
-        // dd($Word);
         $authUser = Auth::user();
         $auth =[
             'id' => $authUser['id'],
@@ -179,18 +175,13 @@ class InputController extends Controller
 
 
         // -------------------UPDATE処理----------------------------------
-        // dd([
-        //     $category_id,
-        //     $user_id,
-        //     $Word,
-        //     $comment
-        //     ]);
+        
         DB::table('words')->where([
             ['category_id',$category_id],
             ['user_id',$user_id],
             ])
             ->update([
-            'word' => $Word,
+            'word' => $word,
             'comment' => $comment,
             'updated_at' => now()
         ]);

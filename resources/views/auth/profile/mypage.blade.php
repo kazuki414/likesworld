@@ -23,7 +23,7 @@
         </div>
         <div class="d-flex textWrap">
             <p class="cateSize letter_font">ひとこと：</p>
-            <p class="col-7 entry_font">{{$value->comment}}</p>
+            <p class="col-7 col-lg-10 entry_font">{{$value->comment}}</p>
         </div>
         <div class="d-flex justify-content-between my-3">
         <form action="{{ route('delete', ['id' =>  $value->id ]) }}" method="post">
