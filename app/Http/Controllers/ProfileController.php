@@ -11,6 +11,7 @@ class ProfileController extends Controller
     //
     public function mypage(Request $request)
     {
+        // セッションリセット
         $request->session()->forget(['category', 'word','comment','type','category.id']);
 
         $authUser = Auth::user();
@@ -30,19 +31,23 @@ class ProfileController extends Controller
         $data =[
             'words' => $table
         ];
-        // dd($data);
+        
         return view('auth.profile.mypage',$data);
     }
 
     public function edit($id)
     {
-        // dd($id);
+        
         $authUser = Auth::user();
         $user_id = $authUser['id']; #ログインユーザのid   
+
+        // 選択単語の情報
         $table = DB::table('words')
                     ->join('categories','words.category_id','=','categories.id')
                     ->where('words.id',$id)
                     ->get();
+
+        // その単語が属するカテゴリID
         $categoryId = DB::table('words')
                     ->where('words.id',$id)
                     ->value('category_id');
@@ -52,16 +57,15 @@ class ProfileController extends Controller
             'colums' => $table
         ];
 
-        // dd($data);
-                    
         return view('auth.profile.edit',$data);
     }
 
     public function delete($id)
     {
-        // dd($id);
         $authUser = Auth::user();
         $user_id = $authUser['id']; #ログインユーザのid  
+
+        // 削除処理
         $table = DB::table('words')
                     ->join('categories','words.category_id','=','categories.id')
                     ->where([

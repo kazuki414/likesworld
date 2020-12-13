@@ -5,7 +5,7 @@
 @csrf
 <div class="container">
 <p class="text-center">以下の内容で登録しますか？</p>
-@if($type == 0)
+@if($type == 0) 
 <div class="container entryField my-5 col-md-8">
     <div class="col-md-6 mx-auto my-1 mt-3">
         <div class="d-flex">
