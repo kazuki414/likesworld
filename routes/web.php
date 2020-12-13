@@ -32,7 +32,7 @@ Route::post('/auth/check','App\Http\Controllers\InputController@check')->middlew
 Route::post('/auth/submit','App\Http\Controllers\InputController@submit')->middleware('auth')->name('submit');
 Route::post('/auth/update','App\Http\Controllers\InputController@update')->middleware('auth')->name('update');
 
-// マイペーじ
+// マイページ
 Route::get('/auth/profile/mypage','App\Http\Controllers\ProfileController@mypage')->middleware('auth')->name('mypage');
 
 Route::post('/auth/profile/edit/{id}','App\Http\Controllers\ProfileController@edit')->middleware('auth')->name('edit');

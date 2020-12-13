@@ -13,16 +13,18 @@ class InputController extends Controller
         // セッションリセット
         $request->session()->forget(['category', 'word','comment','type','category.id']);
 
-        // 全てのユーザが登録したカテゴリ(好きなもの)
+        // 全てのユーザが登録したカテゴリ(好きなもの)最新15件
         $categories = DB::table('categories')
                             ->where('type',0)
                             ->orderByRaw('updated_at DESC')
+                            ->limit(15)
                             ->get();
 
-        // 全てのユーザが登録したカテゴリ（AかBか）
+        // 全てのユーザが登録したカテゴリ（AかBか）最新15件
         $selectCategories = DB::table('categories')
                             ->where('type',1)
                             ->orderByRaw('updated_at DESC')
+                            ->limit(15)
                             ->get();
         $data = [
             'categories' => $categories,

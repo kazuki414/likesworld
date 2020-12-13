@@ -66,7 +66,7 @@
 
 <footer class="bd-footer text-muted">
 <div class="container-fluid p-3 p-md-5">
-    <p class="text-right version">ver.1.2</p>
+    <p class="text-right version">ver.1.3</p>
     <ul class="bd-footer-links d-flex justify-content-around">
         <li class="col-md-3 text-center"><a href="{{ route('top') }}">TOPへ</a></li>
         <li class="col-md-3 text-center"><a href="#" data-toggle="modal" data-target="#howToUseModal">使い方</a></li>

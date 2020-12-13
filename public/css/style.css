@@ -202,31 +202,23 @@ li{
     list-style: none;
 }
 
-/* .submit-btn{ 
-    color: #fff;
-    background-color: darkorange;
-    border-color: darkorange;
-} */
-
 .inputField{    
-        box-sizing    : border-box;           /* 罫線も含む長さ       */
-        width         : 100%;                 /* BOXの幅              */
-        text-align    : center;               /* 文字位置             */
-        color         :white;              /* 文字色               */
-      
-        background    : #990000;              /* BOXの背景色          */
-        border        : 5px groove #ffff1a;   /* 枠線の指定           */
-        box-shadow    : 0 0 0 9px #990000;   /* 影を利用した外余白   */
+        box-sizing    : border-box;        
+        width         : 100%;              
+        text-align    : center;            
+        color         :white;              
+        background    : #990000;             
+        border        : 5px groove #ffff1a;  
+        box-shadow    : 0 0 0 9px #990000;   
 }
 
 .entryField{    
-        box-sizing    : border-box;           /* 罫線も含む長さ       */
-        width         : 100%;                 /* BOXの幅              */
-        color         :white;              /* 文字色               */
-        /* font-family: ; */
-        background    : #990000;              /* BOXの背景色          */
-        border        : 5px groove #ffff1a;   /* 枠線の指定           */
-        box-shadow    : 0 0 0 9px #990000;   /* 影を利用した外余白   */
+        box-sizing    : border-box;        
+        width         : 100%;              
+        color         :white;
+        background    : #990000;
+        border        : 5px groove #ffff1a;
+        box-shadow    : 0 0 0 9px #990000; 
 }
 .text-label{
     opacity: .8;
@@ -242,12 +234,9 @@ li{
 
 
 
-/* test */
-
 .inputTextContainer {
 	position: relative;
 	width: 80%;
-	/* margin: 40px 3%; */
 }
 .inputTextContainer input[type='text'] {
 	font: 15px/24px sans-serif;
@@ -293,10 +282,8 @@ li{
 }
 .inputText ~ label {
 	position: absolute;
-	/* z-index: -1; */
 	top: 4px;
 	left: 0;
-	/* width: 100%; */
 	transition: 0.3s;
 	letter-spacing: 0.5px;
 	color: #aaaaaa;
